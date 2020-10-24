@@ -58,9 +58,13 @@ function TabBar({state, descriptors, navigation,}) {
                         height={56}
                         flex={1}
                         onPress={onPress}>
-                        {label === 'History' && <RotateCcw color={Theme.colors.textLight}/>}
-                        {label === 'Favorite' && <Bookmark color={Theme.colors.textLight}/>}
-                        <Box size={3} bg={isFocused ? 'red' : 'white'} mt={6}/>
+                        {label === 'History' && (
+                            <RotateCcw color={isFocused ? Theme.colors.red : Theme.colors.textLight}/>
+                        )}
+                        {label === 'Favorite' && (
+                            <Bookmark color={isFocused ? Theme.colors.red : Theme.colors.textLight}/>
+                        )}
+                        <Box size={4} bg={isFocused ? 'red' : 'white'} mt={6} borderRadius="full"/>
                     </Button>
                 );
             })}
