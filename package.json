@@ -8,7 +8,7 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
-    "svgr": "svgr ./src/icons -d ./src/components/icons --native --icon --svg-props width=24,height=24,className"
+    "svgr": "svgr ./src/icons -d ./src/components/icons --native --svg-props className= --svgo-config .svgorc.json"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",

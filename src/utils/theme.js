@@ -2,11 +2,25 @@ const space = [];
 
 const colors = {
     red: '#E11E3C',
-    gray: '#758291',
+    softRed: '#F8F8F8',
+    light: '#E8EAED',
+
+    birlesikKelimeDark: '#2E494C',
+    birlesikKelimeMedium: '#73A5AA',
+    birlesikKelimeLight: '#E8F0F1',
+
+    ataSozleriDeyimlerDark: '#4F3822',
+    ataSozleriDeyimlerMedium: '#BB8E62',
+    ataSozleriDeyimlerLight: '#F9F5F1',
+
+    textDark: '#0A151F',
+    textMedium: '#48515B',
+    textLight: '#758291',
+
 };
 
 const radii = {
-    normal: 6,
+    normal: 8,
     full: 9999,
 };
 
