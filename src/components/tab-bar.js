@@ -1,5 +1,4 @@
 import React from 'react';
-import {View} from 'react-native';
 import Box from './box';
 import Button from './button';
 import {Search, Bookmark, RotateCcw} from './icons';
@@ -14,7 +13,15 @@ function TabBar({state, descriptors, navigation,}) {
     }
 
     return (
-        <View style={{flexDirection: 'row'}}>
+        <Box
+          bg="white"
+          flexDirection="row"
+          style={{
+            shadowColor: '#000',
+            shadowOpacity: 0.1,
+            shadowRadius: 24,
+          }}
+        >
             {state.routes.map((route, index) => {
                 const {options} = descriptors[route.key];
                 const label =
@@ -41,7 +48,7 @@ function TabBar({state, descriptors, navigation,}) {
                 return label === 'Search' ? (
                     <Box key={label} p={15} mt={-15} bg={'white'} borderRadius={'full'}>
                         <Button
-                            size={56}
+                            size={45}
                             bg={'red'}
                             borderRadius='full'
                             onPress={onPress}>
@@ -55,7 +62,7 @@ function TabBar({state, descriptors, navigation,}) {
                         key={label}
                         pt={6}
                         flexDirection='column'
-                        height={56}
+                        height={60}
                         flex={1}
                         onPress={onPress}>
                         {label === 'History' && (
@@ -68,7 +75,7 @@ function TabBar({state, descriptors, navigation,}) {
                     </Button>
                 );
             })}
-        </View>
+        </Box>
     );
 }
 

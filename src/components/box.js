@@ -1,6 +1,6 @@
 import {View} from 'react-native';
 import styled from 'styled-components'
-import {compose, color, size, space, flexbox, borderRadius} from 'styled-system'
+import {compose, color, size, space, flexbox, borderRadius, background} from 'styled-system'
 
 const Box = styled(View)(
     compose(
@@ -9,6 +9,7 @@ const Box = styled(View)(
         space,
         size,
         borderRadius,
+        background,
     ),
 );
 

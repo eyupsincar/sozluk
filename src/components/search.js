@@ -10,10 +10,28 @@ import { Search, Close } from './icons';
 import Theme from '../utils/theme';
 
 
-function SearchBox () {
+function SearchBox ({onChangeFocus}) {
 
   const [value, setValue] = React.useState('')
   const [isFocus, setFocus] = React.useState(false)
+
+  React.useEffect(() =>{
+      // Keyboard.addListener('keyboardWillShow', keyboardDidShow);
+      // Keyboard.addListener('keyboardWillHide', keyboardDidHide);
+      // return function () {
+      // Keyboard.removeListener('keyboardWillShow', keyboardDidShow);
+      // Keyboard.removeListener('keyboardWillHide', keyboardDidHide);
+      //   }
+
+    onChangeFocus(isFocus)
+  }, [isFocus, onChangeFocus])
+
+  const keyboardDidShow = () => {
+    onChangeFocus(true)
+  }
+  const keyboardDidHide = () => {
+    onChangeFocus(false)
+  }
 
   const onCancel = () => {
     setFocus(false)
@@ -25,18 +43,17 @@ function SearchBox () {
 
   return (
     <Box flexDirection="row" alignItems="center">
-
-    <Box position="relative" flex={1}>
-    <Input
-    style= {{
-      shadowColor: '#000',
-      shadowOpacity: 0.1,
-      shadowRadius: 24,
-      shadowOffset: {
-        width: 0,
-        height: 4,
-      }
-    }}
+      <Box position="relative" flex={1}>
+        <Input
+          style= {{
+            shadowColor: '#000',
+            shadowOpacity: 0.1,
+            shadowRadius: 24,
+            shadowOffset: {
+              width: 0,
+              height: 4,
+            }
+          }}
 
         borderWidth={1}
         borderColor={isFocus ? "#D1D1D1" : "transparent"}
