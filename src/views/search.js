@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StatusBar, Animated, FlatList } from 'react-native';
+import { StatusBar, Animated, FlatList} from 'react-native';
 import {SafeAreaView, ScrollView} from 'react-native-safe-area-view';
 import { useFocusEffect } from '@react-navigation/native';
 
@@ -32,7 +32,7 @@ const DATA = [
 ];
 
 
-function SearchView() {
+function SearchView({navigation}) {
 const [isSearchFocus, setSearchFocus] = React.useState(false)
 const [heroHeight] = React.useState(new Animated.Value(150))
 
@@ -80,42 +80,57 @@ useFocusEffect(
                 </Box>
               </Bg>
             )}
-
-
           {/* search bölümü*/}
           <Box position="absolute" left={0} bottom={isSearchFocus ? 0 : -42 } p={16} width="100%">
-            <Search onChangeFocus={status => setSearchFocus(status)} />
+              <Search onChangeFocus={status => setSearchFocus(status)} />
+              </Box>
           </Box>
-
-        </Box>
   {/* content bölümü*/}
 
-      <Box pt={isSearchFocus ? 0 : 35}>
+      <Box pt={isSearchFocus ? 0 : 15}>
           {isSearchFocus ? (
             <Box bg="softRed" >
               <Text>History</Text>
             </Box>
-          ) : (
+            ) : (
 
-        <Box p={18}>
+            <Box px={18} py={20}>
+            <Box>
+              <Text color="textLight">Bir Deyim</Text>
 
-            <FlatList
-              data={DATA}
-              renderItem={({item}) => (
-                <CardContainer>
-                  <CardTitle>{item.title}</CardTitle>
-                  <CardSummary>{item.summary}</CardSummary>
+                <CardContainer mt={5} onPress={() => navigation.navigate("Detail")}>
+                  <CardTitle>on para</CardTitle>
+                  <CardSummary>çok az (para).</CardSummary>
                 </CardContainer>
-              )}
-              keyExtractor={item => item.id}
-              />
+            </Box>
+            <Box mt={25}>
+              <Text color="textLight">Bir deyim bir - Atasözü</Text>
 
-
+                <CardContainer mt={5} onPress={() => navigation.navigate('Detail')}>
+                  <CardTitle>siyem siyem ağlamak</CardTitle>
+                  <CardSummary>hafif hafif, ince ince, durmadan gözyaşı dökmek.</CardSummary>
+                </CardContainer>
+              </Box>
           </Box>
           )}
+          </Box>
         </Box>
-      </Box>
     );
 }
 
 export default SearchView;
+
+
+
+// <FlatList
+//    data={DATA}
+//    renderItem={({item}) => (
+//      <Box py={5}>
+//      <CardContainer>
+//        <CardTitle>{item.title}</CardTitle>
+//        <CardSummary>{item.summary}</CardSummary>
+//      </CardContainer>
+//      </Box>
+//    )}
+//    keyExtractor={item => item.id}
+//  />
