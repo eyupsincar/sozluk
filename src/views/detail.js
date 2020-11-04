@@ -22,7 +22,7 @@ import Theme from '../utils/theme';
 
 
 function DetailView({route}) {
-// const keyword = "milliyet"
+//const keyword = "çay"
 const keyword = route.params?.keyword
 
 
@@ -48,17 +48,19 @@ const keyword = route.params?.keyword
   }, [])
 
     return (
-      <Box as={SafeAreaView} bg="softRed" flex={1}>
+      <Box as={SafeAreaView,ScrollView} bg="softRed" flex={1}>
 
-        <Box as={ScrollView} p={16}>
+        <Box p={16}>
       {/* başlık ve alt yazı kısmı*/}
           <Box>
             <Text fontSize={28} fontWeight="bold">
               {keyword}
             </Text>
-            <Text color="textLight" mt={5}>
-              {data?.telaffuz && data?.telaffuz} {data?.lisan}
-            </Text>
+            {(data?.telaffuz || data?.lisan) ? (
+              <Text color="textLight" mt={5}>
+                  {data?.telaffuz && data?.telaffuz} {data?.lisan}
+              </Text>
+            ) : null }
           </Box>
 
           <Box flexDirection="row" mt={15}>
@@ -83,13 +85,14 @@ const keyword = route.params?.keyword
           {data ? (
             data.anlamlarListe.map(item =>(
             <DetailSummaryItem
+              key={item.anlam_sira}
               data={item}
               border={item.anlam_sira != "1"}
             />
           ))
           ) : (
             [1, 2, 3].map(index => (
-              <DetailSummaryItem border={index != 1}>
+              <DetailSummaryItem key={index} border={index != 1}>
                   <LoaderText />
                   <LoaderText width={200} mt={10} />
               </DetailSummaryItem>

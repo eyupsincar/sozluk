@@ -21,27 +21,6 @@ const DATA = [
     title: 'Second Item 2',
     summary: 'açıklama 2'
   },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d72',
-    title: 'Third Item 3',
-    summary: 'açıklama 3'
-  },
-  {
-    id: '59694a0f-3da1-471f-bd96-145571e29d72',
-    title: 'Third Item 4',
-  },
-  {
-    id: '59694a0f-3da1-471f-bd96-145571e29d72',
-    title: 'Third Item 5',
-  },
-  {
-    id: '59694a0f-3da1-471f-bd96-145571e29d72',
-    title: 'Third Item 6',
-  },
-  {
-    id: '59694a0f-3da1-471f-bd96-145571e29d72',
-    title: 'Third Item 7',
-  },
 ];
 
 function SearchView({navigation}) {

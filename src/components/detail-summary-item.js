@@ -9,6 +9,11 @@ import Text from './text';
    border,
    ...props
 }) {
+
+const type =
+data?.ozelliklerListe && data.ozelliklerListe.map(_ => _.tam_adi) ||
+['isim']
+
   return (
     <Box position="relative" bg="white" px={28} py={20} {...props}>
       {border && (
@@ -28,15 +33,19 @@ import Text from './text';
       <Box>
         <Box flexDirection="row">
            <Text ml={-14} mr={5} color="textLight">{data.anlam_sira}</Text>
-          <Text color="red">İSİM</Text>
+          <Text color="red">{type.join(', ')}</Text>
         </Box>
 
         <Box mt={8}>
            <Text fontWeight="bold">{data.anlam}</Text>
-           {data.orneklerListe.map(ornek=>(
+           {data.orneklerListe &&
+             data.orneklerListe.map(ornek=>(
              <Box key={ornek.ornek_id}>
                <Text ml={10} mt={10} color="textLight" fontWeight="500">
                   {ornek.ornek}
+                  <Text fontWeight="bold">
+                     {ornek.yazar_id != "0" && `- ${ornek.yazar[0].tam_adi}`}
+                  </Text>
                </Text>
              </Box>
            ))}

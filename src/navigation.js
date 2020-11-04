@@ -17,9 +17,9 @@ import {
 import TabBar from './components/tab-bar';
 import { Left,More } from './components/icons'
 
-import HistoryView from './views/history';
+// import HistoryView from './views/history';
 import SearchView from './views/search';
-import FavoriteView from './views/favorite';
+// import FavoriteView from './views/favorite';
 import DetailView from './views/detail';
 import Box from './components/box';
 import Theme from './utils/theme';
@@ -78,12 +78,12 @@ function SearchStack() {
 
 function TabNavigator() {
     return (
-    
+
           <NavigationContainer>
               <Tab.Navigator initialRouteName="Search" tabBar={props => <TabBar {...props} />}>
-                  <Tab.Screen name="History" component={HistoryView}/>
+                  {/*<Tab.Screen name="History" component={HistoryView}/>*/}
                   <Tab.Screen name="Search" component={SearchStack}/>
-                  <Tab.Screen name="Favorite" component={FavoriteView}/>
+                  {/*<Tab.Screen name="Favorite" component={FavoriteView}/>*/}
               </Tab.Navigator>
           </NavigationContainer>
 
